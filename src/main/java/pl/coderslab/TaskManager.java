@@ -114,16 +114,16 @@ public class TaskManager {
     public static void removeTask(String[][] tab){
         Scanner input = new Scanner(System.in);
         System.out.println("Please select task number to remove.");
-        int numberToRemove= input.nextInt();
-        if (!(numberToRemove >= 0)){
-            System.out.println("Number < 0");
-        }
-        if (numberToRemove > tab.length - 1){
-            System.out.println("Number out of bounds 0 to" + (tasks.length - 1));
-        }
-        else {
-            tasks = ArrayUtils.remove(tab, numberToRemove);
-            System.out.println("Task was succesfully removed");
+        try {
+            int numberToRemove = input.nextInt();
+            if ((numberToRemove > tab.length - 1) || (numberToRemove < 0)) {
+                System.out.println("Number out of bounds 0 to " + (tasks.length - 1));
+            } else {
+                tasks = ArrayUtils.remove(tab, numberToRemove);
+                System.out.println("Task was succesfully removed");
+            }
+        } catch (InputMismatchException exception){
+            System.out.println("Input is not a valid number");
         }
     }
 
