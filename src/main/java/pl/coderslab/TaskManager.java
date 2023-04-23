@@ -21,10 +21,6 @@ public class TaskManager {
         while (scan.hasNext()) {
             String input = scan.nextLine();
             switch (input) {
-                case "exit":
-                    System.out.println(ConsoleColors.RED + "Bye, bye.");
-                    saveData(tasks, fileName);
-                    System.exit(0);
                 case "add":
                     addTask();
                     break;
@@ -34,6 +30,10 @@ public class TaskManager {
                 case "list":
                     showTasks(tasks);
                     break;
+                case "exit":
+                    System.out.println(ConsoleColors.RED + "Bye, bye.");
+                    saveData(tasks, fileName);
+                    System.exit(0);
                 default:
                     System.out.println("Please select a correct option");
             }
